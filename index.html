@@ -1,0 +1,785 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>社群行銷經營術（FB／IG）</title>
+  <style>
+    :root {
+      --ink: #17202a;
+      --muted: #5f6975;
+      --line: #dde3ea;
+      --paper: #fbfcfd;
+      --white: #ffffff;
+      --teal: #147d76;
+      --coral: #d95f47;
+      --gold: #c58b1f;
+      --blue: #2f6fb2;
+      --soft-teal: #e7f4f2;
+      --soft-coral: #fff0ec;
+      --soft-gold: #fff6df;
+      --shadow: 0 18px 50px rgba(23, 32, 42, 0.10);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: "Noto Sans TC", "Microsoft JhengHei", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.65;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      border-bottom: 1px solid rgba(221, 227, 234, 0.86);
+      background: rgba(251, 252, 253, 0.92);
+      backdrop-filter: blur(14px);
+    }
+
+    .nav {
+      width: min(1160px, calc(100% - 32px));
+      margin: 0 auto;
+      min-height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      letter-spacing: 0;
+    }
+
+    .mark {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border-radius: 8px;
+      color: var(--white);
+      background: var(--teal);
+      font-weight: 900;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav-links a {
+      padding: 8px 10px;
+      border-radius: 8px;
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .nav-links a:hover {
+      color: var(--ink);
+      background: var(--soft-teal);
+    }
+
+    .hero {
+      background: #eef5f4;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .hero-inner {
+      width: min(1160px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 54px 0 36px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(320px, 520px);
+      gap: 34px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      margin: 0 0 12px;
+      color: var(--teal);
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 760px;
+      font-size: clamp(40px, 6vw, 72px);
+      line-height: 1.02;
+      letter-spacing: 0;
+    }
+
+    .lead {
+      margin: 22px 0 0;
+      max-width: 680px;
+      color: #34404c;
+      font-size: 20px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 10px 16px;
+      border: 1px solid var(--teal);
+      border-radius: 8px;
+      background: var(--teal);
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 800;
+    }
+
+    .button.secondary {
+      background: var(--white);
+      color: var(--teal);
+    }
+
+    .hero-visual {
+      width: 100%;
+      aspect-ratio: 1.18;
+      border-radius: 8px;
+      object-fit: cover;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(20, 125, 118, 0.16);
+      background: var(--white);
+    }
+
+    main {
+      width: min(1160px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    section {
+      padding: 56px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 24px;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: clamp(26px, 3vw, 40px);
+      line-height: 1.16;
+      letter-spacing: 0;
+    }
+
+    .section-note {
+      max-width: 520px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .overview-grid,
+    .tool-grid,
+    .scene-grid,
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .card {
+      min-height: 100%;
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--white);
+      box-shadow: 0 10px 28px rgba(23, 32, 42, 0.05);
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+      font-size: 20px;
+      letter-spacing: 0;
+    }
+
+    .card p,
+    .card li {
+      color: var(--muted);
+    }
+
+    .card p {
+      margin: 0;
+    }
+
+    .card ul {
+      margin: 12px 0 0;
+      padding-left: 20px;
+    }
+
+    .tag {
+      display: inline-flex;
+      margin-bottom: 12px;
+      padding: 4px 8px;
+      border-radius: 6px;
+      background: var(--soft-gold);
+      color: #805600;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .tool-card {
+      border-top: 5px solid var(--blue);
+    }
+
+    .tool-card:nth-child(2) {
+      border-top-color: var(--coral);
+    }
+
+    .tool-card:nth-child(3) {
+      border-top-color: var(--gold);
+    }
+
+    .timeline {
+      display: grid;
+      gap: 12px;
+      counter-reset: step;
+    }
+
+    .step {
+      display: grid;
+      grid-template-columns: 52px 1fr;
+      gap: 16px;
+      align-items: start;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--white);
+    }
+
+    .step::before {
+      counter-increment: step;
+      content: counter(step, decimal-leading-zero);
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      border-radius: 8px;
+      background: var(--soft-coral);
+      color: var(--coral);
+      font-weight: 900;
+    }
+
+    .step h3 {
+      margin: 0 0 4px;
+      font-size: 19px;
+    }
+
+    .step p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .prompt-toolbar {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 18px;
+    }
+
+    .filter-button {
+      min-height: 38px;
+      padding: 8px 12px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--white);
+      color: var(--muted);
+      cursor: pointer;
+      font: inherit;
+      font-weight: 700;
+    }
+
+    .filter-button.active,
+    .filter-button:hover {
+      border-color: var(--teal);
+      background: var(--soft-teal);
+      color: var(--teal);
+    }
+
+    .prompt-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .prompt-card {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--white);
+    }
+
+    .prompt-card[hidden] {
+      display: none;
+    }
+
+    .prompt-title {
+      display: flex;
+      align-items: start;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .prompt-title h3 {
+      margin: 0;
+      font-size: 18px;
+    }
+
+    .prompt-category {
+      flex: 0 0 auto;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: var(--soft-teal);
+      color: var(--teal);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .prompt-text {
+      margin: 0;
+      padding: 14px;
+      border-left: 4px solid var(--coral);
+      background: #fff8f6;
+      color: #34404c;
+    }
+
+    .copy-button {
+      align-self: flex-start;
+      min-height: 38px;
+      padding: 8px 12px;
+      border: 1px solid var(--teal);
+      border-radius: 8px;
+      background: var(--white);
+      color: var(--teal);
+      cursor: pointer;
+      font: inherit;
+      font-weight: 800;
+    }
+
+    .outcome {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .outcome span {
+      min-height: 88px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px;
+      border-radius: 8px;
+      background: var(--ink);
+      color: var(--white);
+      text-align: center;
+      font-weight: 800;
+    }
+
+    .footer {
+      padding: 36px 0 48px;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    @media (max-width: 900px) {
+      .hero-inner,
+      .overview-grid,
+      .tool-grid,
+      .scene-grid,
+      .feature-grid,
+      .prompt-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-inner {
+        padding-top: 36px;
+      }
+
+      .section-head {
+        align-items: start;
+        flex-direction: column;
+      }
+
+      .outcome {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 640px) {
+      .nav {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 12px 0;
+      }
+
+      .nav-links {
+        justify-content: flex-start;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+      }
+
+      .button {
+        width: 100%;
+      }
+
+      .step {
+        grid-template-columns: 1fr;
+      }
+
+      .outcome {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <nav class="nav" aria-label="主要導覽">
+      <div class="brand"><span class="mark">AI</span><span>社群行銷經營術</span></div>
+      <div class="nav-links">
+        <a href="#overview">總覽</a>
+        <a href="#tools">AI工具</a>
+        <a href="#scenes">場景</a>
+        <a href="#features">核心功能</a>
+        <a href="#flow">流程</a>
+        <a href="#prompts">提示詞</a>
+      </div>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <div>
+        <p class="eyebrow">FB／IG 內容經營 × GPT 實作課</p>
+        <h1>社群行銷經營術（FB／IG）</h1>
+        <p class="lead">這堂課不是只教你發文，而是幫你理解什麼內容更容易被看見、什麼寫法更容易互動，以及什麼節奏更適合長期經營品牌印象。</p>
+        <div class="hero-actions">
+          <a class="button" href="#flow">查看操作流程</a>
+          <a class="button secondary" href="#prompts">取得學員提示詞</a>
+        </div>
+      </div>
+      <img class="hero-visual" src="assets/social-course-visual.png" alt="社群行銷課程視覺，包含手機貼文、互動訊號與內容排程">
+    </div>
+  </section>
+
+  <main>
+    <section id="overview">
+      <div class="section-head">
+        <h2>課程總覽</h2>
+        <p class="section-note">把零散靈感整理成有方向、有節奏、能持續累積品牌印象的社群內容系統。</p>
+      </div>
+      <div class="overview-grid">
+        <article class="card">
+          <span class="tag">學習重點</span>
+          <h3>從發文到經營</h3>
+          <p>理解觸及、互動、內容節奏與平台差異，不再只靠想到什麼就發什麼。</p>
+        </article>
+        <article class="card">
+          <span class="tag">核心觀念</span>
+          <h3>內容要被設計</h3>
+          <p>貼文需要主題、開頭、主體、互動設計與 CTA，讓讀者知道為什麼要看、看完能做什麼。</p>
+        </article>
+        <article class="card">
+          <span class="tag">帶走成果</span>
+          <h3>可直接使用</h3>
+          <p>完成品牌貼文主題表、FB 貼文、IG 貼文、留言引導、CTA 與簡易排程表。</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="tools">
+      <div class="section-head">
+        <h2>使用的 AI 工具</h2>
+        <p class="section-note">以 GPT 作為內容企劃與改寫助手，搭配 Meta 排程工具，讓社群經營更穩定。</p>
+      </div>
+      <div class="tool-grid">
+        <article class="card tool-card">
+          <h3>GPT</h3>
+          <ul>
+            <li>整理社群經營觀念</li>
+            <li>產出貼文開頭、留言引導與 CTA</li>
+            <li>改寫 FB／IG 不同平台版本</li>
+          </ul>
+        </article>
+        <article class="card tool-card">
+          <h3>Meta Business Suite</h3>
+          <ul>
+            <li>安排 FB／IG 發文排程</li>
+            <li>降低臨時發文壓力</li>
+            <li>建立穩定更新節奏</li>
+          </ul>
+        </article>
+        <article class="card tool-card">
+          <h3>內容檢查表</h3>
+          <ul>
+            <li>檢查主題是否清楚</li>
+            <li>確認互動與 CTA 是否自然</li>
+            <li>檢查成果是否完整可交付</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="scenes">
+      <div class="section-head">
+        <h2>應用場景</h2>
+        <p class="section-note">適合品牌主理人、小編、行銷企劃、課程學員與需要經營 FB／IG 的店家使用。</p>
+      </div>
+      <div class="scene-grid">
+        <article class="card">
+          <h3>品牌日常經營</h3>
+          <p>規劃品牌、商品、知識、互動、活動五種內容，避免社群只剩單一訊息。</p>
+        </article>
+        <article class="card">
+          <h3>活動與商品推廣</h3>
+          <p>把促銷或活動內容改寫成自然 CTA，不讓貼文變成突兀的硬推銷。</p>
+        </article>
+        <article class="card">
+          <h3>平台內容改寫</h3>
+          <p>同一主題分別改成 FB 的故事說明感與 IG 的短句畫面感。</p>
+        </article>
+        <article class="card">
+          <h3>互動率提升</h3>
+          <p>設計具體、容易回答的留言問題，讓讀者更願意表態、分享或選擇。</p>
+        </article>
+        <article class="card">
+          <h3>課後成果整理</h3>
+          <p>檢查貼文主題、FB／IG 文案、互動問題、CTA 與排程表是否完整。</p>
+        </article>
+        <article class="card">
+          <h3>長期內容節奏</h3>
+          <p>從單篇爆文思維轉向系列內容規劃，慢慢累積品牌記憶點。</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="features">
+      <div class="section-head">
+        <h2>核心功能</h2>
+        <p class="section-note">課程把社群經營拆成可理解、可操作、可檢查的能力模組。</p>
+      </div>
+      <div class="feature-grid">
+        <article class="card">
+          <h3>演算法理解</h3>
+          <p>理解停留時間、按讚留言分享、收藏回訪、內容相關性與帳號穩定度。</p>
+        </article>
+        <article class="card">
+          <h3>貼文結構設計</h3>
+          <p>掌握開頭、主體、互動問題與 CTA，讓資訊變成讀者願意停留的內容。</p>
+        </article>
+        <article class="card">
+          <h3>FB／IG 差異改寫</h3>
+          <p>FB 重故事、說明與討論；IG 重節奏、畫面與短句。不同平台需要不同寫法。</p>
+        </article>
+        <article class="card">
+          <h3>內容組合規劃</h3>
+          <p>搭配品牌、商品、知識、互動、活動內容，讓社群不單調、不疲乏。</p>
+        </article>
+        <article class="card">
+          <h3>互動與 CTA</h3>
+          <p>設計留言引導、收藏、私訊、追蹤、點擊連結等自然行動，不只追求曝光。</p>
+        </article>
+        <article class="card">
+          <h3>排程與持續經營</h3>
+          <p>先規劃、先安排、先預約，讓社群有穩定節奏，而不是靠臨時靈感。</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="flow">
+      <div class="section-head">
+        <h2>操作流程</h2>
+        <p class="section-note">照這個流程走，學員可以從品牌主題一路做到可排程的社群內容。</p>
+      </div>
+      <div class="timeline">
+        <article class="step">
+          <div>
+            <h3>釐清品牌主題與受眾</h3>
+            <p>先決定要讓誰看、想留下什麼品牌印象，以及本週內容要服務哪個目標。</p>
+          </div>
+        </article>
+        <article class="step">
+          <div>
+            <h3>建立內容組合</h3>
+            <p>安排品牌、商品、知識、互動、活動五種類型，避免只賣產品或只發心情。</p>
+          </div>
+        </article>
+        <article class="step">
+          <div>
+            <h3>設計貼文結構</h3>
+            <p>用吸引人的開頭帶入主體內容，再加入互動問題與自然 CTA。</p>
+          </div>
+        </article>
+        <article class="step">
+          <div>
+            <h3>改寫 FB／IG 版本</h3>
+            <p>FB 補足故事與說明，IG 壓短句子並強化節奏與畫面感。</p>
+          </div>
+        </article>
+        <article class="step">
+          <div>
+            <h3>加入互動與 CTA</h3>
+            <p>把留言引導設計得具體、容易回答，CTA 則要接得上內容、不突然硬銷。</p>
+          </div>
+        </article>
+        <article class="step">
+          <div>
+            <h3>完成排程與檢查</h3>
+            <p>決定要發什麼、什麼時候發、發給誰看，最後檢查成果是否完整。</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="outcomes">
+      <div class="section-head">
+        <h2>建議完成成果</h2>
+        <p class="section-note">這些成果是學員真正帶得走的社群經營基礎。</p>
+      </div>
+      <div class="outcome" aria-label="課程成果">
+        <span>品牌貼文主題表</span>
+        <span>FB 貼文 1 則</span>
+        <span>IG 貼文 1 則</span>
+        <span>留言引導句 3 組</span>
+        <span>CTA 3 組</span>
+        <span>簡易排程表 1 份</span>
+      </div>
+    </section>
+
+    <section id="prompts">
+      <div class="section-head">
+        <h2>學員提示詞</h2>
+        <p class="section-note">可直接複製到 GPT 使用。也可以先用分類按鈕快速篩選。</p>
+      </div>
+      <div class="prompt-toolbar" aria-label="提示詞分類">
+        <button class="filter-button active" type="button" data-filter="all">全部</button>
+        <button class="filter-button" type="button" data-filter="overview">觀念</button>
+        <button class="filter-button" type="button" data-filter="content">內容設計</button>
+        <button class="filter-button" type="button" data-filter="platform">平台改寫</button>
+        <button class="filter-button" type="button" data-filter="schedule">排程成果</button>
+      </div>
+      <div class="prompt-grid" id="promptGrid"></div>
+    </section>
+
+    <div class="footer">
+      社群經營不是碰運氣，而是持續累積品牌印象。
+    </div>
+  </main>
+
+  <script>
+    const prompts = [
+      ["課程收穫", "overview", "請用簡單好懂的方式，說明這堂課「社群行銷經營術（FB／IG）」會學到什麼，並列出 5 個最實用的收穫。"],
+      ["不能只靠靈感", "overview", "請說明為什麼社群經營不能只靠靈感發文，並整理成 5 個常見問題與改善方向。"],
+      ["觸及高低原因", "overview", "請用初學者能理解的方式，解釋社群貼文為什麼有些觸及高、有些觸及低。"],
+      ["演算法訊號", "overview", "請整理 FB 與 IG 演算法常見會重視的 5 個訊號，並用簡單例子說明。"],
+      ["提升觸及率", "overview", "請整理提升社群觸及率的 8 個實用做法，並區分哪些是內容面、哪些是經營面。"],
+      ["FB 與 IG 差異", "platform", "請比較 Facebook 與 Instagram 在內容風格、閱讀習慣、互動方式上的差異，請用表格整理。"],
+      ["貼文類型", "content", "請根據品牌經營需求，整理 6 種常見社群貼文類型，並說明各自適合的使用時機。"],
+      ["內容規劃", "content", "請說明為什麼品牌社群經營要做內容規劃，而不是只追求單篇爆文，並提出 5 個原因。"],
+      ["貼文基本結構", "content", "請幫我整理社群貼文的基本結構，分成開頭、主體、互動、CTA 四部分，並舉一個品牌貼文例子。"],
+      ["開頭句設計", "content", "請針對我的品牌主題設計 10 個社群貼文開頭句，分成提問型、情境型、痛點型。品牌主題：【填入】"],
+      ["互動設計", "content", "請說明為什麼社群貼文需要互動設計，並列出 5 種常見互動方式。"],
+      ["留言引導", "content", "請根據以下品牌主題，設計 10 個適合社群貼文的留言引導問題，品牌主題：【填入】"],
+      ["自然 CTA", "content", "請設計 10 句適合 Facebook 與 Instagram 使用的 CTA，語氣自然、不硬銷，適合品牌社群經營。"],
+      ["品牌互動語氣", "content", "請根據我的品牌風格，設計適合的互動語氣與留言引導方式。品牌風格：【填入】"],
+      ["雙平台改寫", "platform", "請把以下內容改寫成 FB 版與 IG 版兩種貼文，並說明兩者差異。原始內容：【填入】"],
+      ["一週內容節奏", "schedule", "請根據我的品牌資訊，幫我規劃一週社群內容節奏，包含品牌、商品、知識、互動、活動五種類型。"],
+      ["Meta 排程好處", "schedule", "請說明使用 Meta 排程工具的 5 個好處，並整理成適合課堂講義的條列重點。"],
+      ["兩週排程表", "schedule", "請幫我規劃一份 2 週 FB／IG 發文排程表，包含發文主題、發文目的、建議時間與互動設計。"],
+      ["成果完整檢查", "schedule", "請幫我檢查以下社群內容成果是否完整，包含主題規劃、FB/IG 貼文、互動問題、CTA 與排程表。內容如下：【填入】"],
+      ["下一步延伸", "schedule", "請根據我今天完成的社群成果，幫我規劃下一步可以延伸的 5 個任務，例如活動貼文、限動互動、商品系列文、品牌故事文、節慶貼文。"]
+    ];
+
+    const categoryNames = {
+      overview: "觀念",
+      content: "內容設計",
+      platform: "平台改寫",
+      schedule: "排程成果"
+    };
+
+    const grid = document.querySelector("#promptGrid");
+
+    function renderPrompts(filter = "all") {
+      grid.innerHTML = "";
+      prompts.forEach(([title, category, text]) => {
+        const card = document.createElement("article");
+        card.className = "prompt-card";
+        card.dataset.category = category;
+        if (filter !== "all" && category !== filter) card.hidden = true;
+        card.innerHTML = `
+          <div class="prompt-title">
+            <h3>${title}</h3>
+            <span class="prompt-category">${categoryNames[category]}</span>
+          </div>
+          <p class="prompt-text">${text}</p>
+          <button class="copy-button" type="button">複製提示詞</button>
+        `;
+        card.querySelector(".copy-button").addEventListener("click", async (event) => {
+          if (navigator.clipboard && window.isSecureContext) {
+            await navigator.clipboard.writeText(text);
+          } else {
+            const textarea = document.createElement("textarea");
+            textarea.value = text;
+            textarea.style.position = "fixed";
+            textarea.style.opacity = "0";
+            document.body.appendChild(textarea);
+            textarea.focus();
+            textarea.select();
+            document.execCommand("copy");
+            textarea.remove();
+          }
+          event.currentTarget.textContent = "已複製";
+          setTimeout(() => event.currentTarget.textContent = "複製提示詞", 1200);
+        });
+        grid.appendChild(card);
+      });
+    }
+
+    document.querySelectorAll(".filter-button").forEach((button) => {
+      button.addEventListener("click", () => {
+        document.querySelectorAll(".filter-button").forEach((item) => item.classList.remove("active"));
+        button.classList.add("active");
+        renderPrompts(button.dataset.filter);
+      });
+    });
+
+    renderPrompts();
+  </script>
+</body>
+</html>
